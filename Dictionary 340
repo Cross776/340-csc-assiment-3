@@ -57,7 +57,6 @@ cout << "! Closing data file... ./Data.CS.SFSU.txt" << endl;
 cout << endl;
 cout << "----- DICTIONARY 340 C++----- " << endl;
 cout << endl;
-
 vector<string> keyWords;
 
 for (map<string, vector<string>>::iterator it = mymap.begin(); it != mymap.end(); it++) {
@@ -87,7 +86,6 @@ while (s2 >> tmp) {
 v.push_back(tmp);
 }
 
-
 string wordSearch = v[0];
 wordSearch = replaceWordSearch(wordSearch);
 
@@ -99,7 +97,6 @@ break;
 else {
 
 cout << " |" << endl;
-
 if (v.size() == 0) {
 cout << " <Please enter a search key (and a part of speech).>" << endl;
 
@@ -111,7 +108,6 @@ if (v[0] == map_iter->first) {
 for (auto vec_iter = map_iter->second.cbegin(); vec_iter != map_iter->second.cend(); ++vec_iter)
 std::cout << " " << wordSearch << " " << *vec_iter << endl;
 
-
 }
 }
 }
@@ -121,7 +117,6 @@ cout << " <Not found.>" << endl;
 }
 }
 
-//if two or more words are entered, output definition or error message
 if (v.size() == 2) {
 if ((v[1] != "noun") && (v[1] != "adjective") && (v[1] != "verb")) {
 cout << " <2nd argument must be a part of speech.>" << endl;
@@ -180,7 +175,6 @@ s.insert(pos, replace);
 }
 }
 
-
 string replaceWordSearch(string word) {
 if (word == "book")
 return "Book";
@@ -199,4 +193,3 @@ return "CSC340";
 else
 return word;
 }
-
