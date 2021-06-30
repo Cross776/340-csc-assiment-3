@@ -1,3 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <iomanip>
+#include <stdlib.h>
+using namespace std;
+
 bool isvalidcc(const string&);
 
 int main()
@@ -26,4 +33,32 @@ int main()
 	}
 
 	return 0;
+}
+bool isvalidcc(const string& cc) {
+   int sum1 = 0, sum2 = 0;
+   int n = cc.length()-1, tmp;
+   string s;
+   if(cc.length()< 13 || cc.length()>16) {
+       return false;
+   }
+   if(cc.at(0) == '4' ||cc.at(0) == '5'|| cc.at(0) == '6'|| cc.substr(0,2) == "37") {
+       for(int i =n-1 ; i >=0; i -= 2) {
+           s = cc.at(i);
+           tmp = stoi(s);
+           // double it;
+           tmp *= 2;
+           tmp = (tmp/10) + (tmp%10);
+           sum1 += tmp;
+       }
+       for(int i = n ; i >=0; i -= 2) {
+           s = cc.at(i);
+           tmp = stoi(s);
+           sum2 += tmp;
+       }
+       return ((sum1+sum2)%10 == 0);
+   }
+   else {
+       return false;
+   }
+
 }
